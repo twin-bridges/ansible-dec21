@@ -1,0 +1,21 @@
+---
+- name: Print out variables
+  hosts: cisco5
+  gather_facts: True
+  tasks:
+    - name: "$vars from fact gathering"
+      ansible.builtin.debug:
+        msg: "{{ ansible_net_model }}"
+
+    - name: "$vars from fact gathering"
+      ansible.builtin.debug:
+        var: ansible_net_serialnum
+
+    - name: Gather Facts from IOS (with register) 
+      cisco.ios.ios_facts:
+      register: output
+
+    - name: Debug register output
+      ansible.builtin.debug:
+        msg: "{{ output }}"
+

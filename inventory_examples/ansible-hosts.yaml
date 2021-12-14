@@ -1,0 +1,136 @@
+all:
+  children:
+    cisco_all:
+      children:
+        cisco:
+          hosts:
+            cisco1:
+              ansible_connection: network_cli
+              ansible_host: cisco1.lasthop.io
+              ansible_network_os: ios
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+            cisco2:
+              ansible_connection: network_cli
+              ansible_host: cisco2.lasthop.io
+              ansible_network_os: ios
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+            cisco5:
+              ansible_connection: network_cli
+              ansible_host: cisco5.lasthop.io
+              ansible_network_os: ios
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+            cisco6:
+              ansible_connection: network_cli
+              ansible_host: cisco6.lasthop.io
+              ansible_network_os: ios
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+        nxos:
+          hosts:
+            nxos1:
+              ansible_connection: network_cli
+              ansible_host: nxos1.lasthop.io
+              ansible_httpapi_port: 8443
+              ansible_httpapi_use_ssl: true
+              ansible_httpapi_validate_certs: false
+              ansible_network_os: nxos
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+            nxos2:
+              ansible_connection: network_cli
+              ansible_host: nxos2.lasthop.io
+              ansible_httpapi_port: 8443
+              ansible_httpapi_use_ssl: true
+              ansible_httpapi_validate_certs: false
+              ansible_network_os: nxos
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+    denver:
+      children:
+        cisco:
+          hosts:
+            cisco1: {}
+            cisco2: {}
+            cisco5: {}
+            cisco6: {}
+        nxos:
+          hosts:
+            nxos1: {}
+            nxos2: {}
+    juniper:
+      hosts:
+        vmx1:
+          ansible_connection: netconf
+          ansible_host: vmx1.lasthop.io
+          ansible_network_os: junos
+          ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+          ansible_ssh_pass: invalid
+          ansible_user: pyclass
+        vmx2:
+          ansible_connection: netconf
+          ansible_host: vmx2.lasthop.io
+          ansible_network_os: junos
+          ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+          ansible_ssh_pass: invalid
+          ansible_user: pyclass
+    local:
+      hosts:
+        localhost:
+          ansible_connection: local
+          ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+          ansible_ssh_pass: invalid
+          ansible_user: pyclass
+    san_francisco:
+      children:
+        arista:
+          hosts:
+            arista5:
+              ansible_connection: network_cli
+              ansible_host: arista5.lasthop.io
+              ansible_httpapi_use_ssl: true
+              ansible_httpapi_validate_certs: false
+              ansible_network_os: eos
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+            arista6:
+              ansible_connection: network_cli
+              ansible_host: arista6.lasthop.io
+              ansible_httpapi_use_ssl: true
+              ansible_httpapi_validate_certs: false
+              ansible_network_os: eos
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+            arista7:
+              ansible_connection: network_cli
+              ansible_host: arista7.lasthop.io
+              ansible_httpapi_use_ssl: true
+              ansible_httpapi_validate_certs: false
+              ansible_network_os: eos
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+            arista8:
+              ansible_connection: network_cli
+              ansible_host: arista8.lasthop.io
+              ansible_httpapi_use_ssl: true
+              ansible_httpapi_validate_certs: false
+              ansible_network_os: eos
+              ansible_python_interpreter: /home/ktbyers/VENV/ansible/bin/python
+              ansible_ssh_pass: invalid
+              ansible_user: pyclass
+        nxos:
+          hosts:
+            nxos1: {}
+            nxos2: {}
+    ungrouped: {}

@@ -1,0 +1,13 @@
+---
+san_francisco:
+  rtr1:
+    ip_addr: 10.71.1.1
+    device_type: cisco_nxos
+    username: admin
+    password: cisco123
+los_angeles:
+  rtr1:
+    ip_addr: 10.99.100.1
+    device_type: cisco_nxos
+    username: admin
+    password: cisco123
