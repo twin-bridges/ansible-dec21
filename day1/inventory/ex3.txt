@@ -1,0 +1,15 @@
+
+Expand on exercise1 and exercise2 by modifying your inventory file to set the 
+"ansible_network_os" for the cisco and arista groups to "ios" and "eos" 
+respectively. 
+
+Additionally, set the "ansible_host" for each of these hosts to the fqdn of device
+(i.e. cisco1.lasthop.io, arista1.lasthop.io, etc.). Use the below command:
+
+$ ansible-inventory --list -i ./inventory.ini
+
+to inspect the inventory and to validate that the network_os has been set appropriately. 
+
+Additionally, add "localhost" to be a member of the "local" group (you will need to set 
+ansible_connection=local for the localhost entry).
+

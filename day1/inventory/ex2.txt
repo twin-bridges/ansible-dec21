@@ -1,0 +1,18 @@
+
+Expand on exercise1 by adding two hosts to the arista and cisco groups.
+
+Re-inspect the inventory using ansible-inventory --list -i ./inventory.ini. 
+
+Additionally, use the --graph option. This option provides a more compressed view 
+of your inventory. Your --graph output should look similar to the following:
+
+@all:
+  |--@arista:
+  |  |--arista5
+  |  |--arista6
+  |--@cisco:
+  |  |--cisco1
+  |  |--cisco2
+  |--@local:
+  |--@ungrouped:
+

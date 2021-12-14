@@ -1,0 +1,32 @@
+
+Create an "INI" style inventory file. This file should have an "all:vars" 
+section containing variables for the following:
+
+  * ansible_connection type should be set to "network_cli"
+  * ansible_python_interpreter should be set to "~/VENV/py3_venv/bin/python"
+  * ansible_user should be set to the course's standard value
+  * ansible_ssh_pass should be set to the string "invalid"
+
+Additionally, add the following three groups to the inventory file:
+
+  * local
+  * cisco
+  * arista
+
+Use the ansible-inventory --list -i ./inventory.ini to validate and inspect your 
+inventory file, your output should look similar to the following:
+
+{
+    "_meta": {
+        "hostvars": {}
+    },
+    "all": {
+        "children": [
+            "arista",
+            "cisco",
+            "local",
+            "ungrouped"
+        ]
+    }
+}
+
