@@ -1,0 +1,11 @@
+---
+- name: Print out inventory variables
+  hosts: local
+  gather_facts: False
+  vars_files: ip_addr.yml
+
+  tasks:
+    - name: Print out an IP address
+      ansible.builtin.debug:
+        msg: "IP: {{ ip_addr3 }}"
+

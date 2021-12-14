@@ -1,0 +1,13 @@
+---
+- name: Print out inventory variables
+  hosts: all
+  gather_facts: False
+
+  tasks:
+    - name: Print out ansible_host
+      ansible.builtin.debug:
+        var: ansible_host
+
+    - name: Print out inventory_hostname
+      ansible.builtin.debug:
+        var: inventory_hostname

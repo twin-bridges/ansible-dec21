@@ -17,5 +17,5 @@
 
     - name: Debug register output
       ansible.builtin.debug:
-        msg: "{{ output }}"
+        var: output
 

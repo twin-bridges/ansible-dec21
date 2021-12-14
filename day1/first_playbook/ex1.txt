@@ -1,6 +1,6 @@
 
 1a. Create a playbook that uses "ansible.builtin.debug" and prints out a message
-to stdout. This playbook should run on the "local host.
+to stdout. This playbook should run on the host named "localhost".
 
 1b. Modify the playbook such that it executes on all of the hosts in the "cisco" group.
 

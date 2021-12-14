@@ -1,0 +1,8 @@
+
+Add a "vars" section at the play level. In this vars section define two variables:
+dns1=8.8.8.8 and dns2=8.8.4.4.
+
+Using the "ansible.builtin.debug" module, print these two variables out to stdout.
+
+The play should run using the "local" group.
+

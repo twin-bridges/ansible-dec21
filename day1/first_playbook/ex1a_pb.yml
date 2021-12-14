@@ -1,6 +1,6 @@
 ---
 - name: Exercise 1A
-  hosts: local
+  hosts: localhost
   gather_facts: False
 
   tasks:

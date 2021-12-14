@@ -1,0 +1,9 @@
+
+Add a "vars_files" section at the play level and point to an external YAML file.
+
+In your external YAML file define three IP addresses: ip_addr1, ip_addr2, and ip_addr3.
+
+Using the "ansible.builtin.debug" module, print out one of these IP addresses.
+
+The play should run using the "local" group.
+

@@ -1,0 +1,22 @@
+---
+- name: Print out variables
+  hosts: cisco5
+  gather_facts: True
+  tasks:
+    - name: Gather Facts from IOS (with register) 
+      cisco.ios.ios_facts:
+      register: output
+
+    - name: Extract Serial Number
+      ansible.builtin.set_fact:
+        serial_num: "{{ output['ansible_facts']['ansible_net_serialnum'] }}"
+
+    - name: Extract Serial Number (dot notation)
+      ansible.builtin.set_fact:
+        serial_num_alt: "{{ output.ansible_facts.ansible_net_serialnum }}"
+
+    - name: Print Serial Number
+      ansible.builtin.debug:
+        msg: |
+          "{{ serial_num }}"
+          "{{ serial_num_alt }}"

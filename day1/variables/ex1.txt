@@ -1,0 +1,6 @@
+
+Create a playbook that uses "ansible.builtin.debug" and prints out the following
+two variables to stdout: {{ ansible_host }} and {{ inventory_hostname }}
+
+Execute this playbook against all of the hosts in inventory.
+

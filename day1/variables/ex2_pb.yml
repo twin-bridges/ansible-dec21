@@ -1,0 +1,15 @@
+---
+- name: Print out inventory variables
+  hosts: local
+  gather_facts: False
+  vars:
+    dns1: 8.8.8.8
+    dns2: 8.8.4.4
+
+  tasks:
+    - name: Print out DNS Servers
+      ansible.builtin.debug:
+        msg: |
+          "DNS1: {{ dns1 }}"
+          "DNS2: {{ dns2 }}"
+
