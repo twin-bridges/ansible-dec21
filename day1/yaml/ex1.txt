@@ -1,17 +1,45 @@
 
+All of theses exercises require the following Python script:
+------------------------------------------------------------
+
+https://github.com/twin-bridges/ansible-dec21/blob/main/day1/yaml/print_yaml.py
+
+To run this python script you can 'git clone' this repository, or just copy/paste
+the contents of the script into a ".py" file on your system. Use the following 
+command to run the script:
+
+$ python print_yaml.py
+
+Verify each of these exercises by running the above script and by providing your
+YAML filename (the script will prompt you).
+
+
+
 1a. Create a YAML file that is a five element list (in expanded YAML format).
 
-In order to verify the contents of this YAML file (i.e. to print the data structure to stdout), use the Python script stored here. To run this python script you can 'git clone' this repository, or just copy/paste the contents of the script into a ".py" file on your system. Use the following command to run the script:
 
-python print_yaml.py MYFILE.yml
+1b. Create a YAML file that is a five element list, but in a compressed YAML
+format. Once again, use the "print_yaml.py" python script to print the contents
+of the YAML file to stdout.
 
-1b. Create a YAML file that is a five element list, but in a compressed YAML format. Once again, use the "print_yaml.py" python script to print the contents of the YAML file to stdout.
+1c. Create a YAML file that contains a dictionary representing a networking
+device (in an expanded YAML format). The highest level key should be the device
+name (for example, "rtr1"). The value corresponding to that key should be another
+dictionary. This inner dictionary should have the following key-value pairs
+(host, username, password, device_type, use_session_log). use_session_log should
+be a YAML-boolean, the rest of the values should be strings. 
 
-1c. Create a YAML file that contains a dictionary representing a networking device (in an expanded YAML format). The highest level key should be the device name (for example, "rtr1"). The value corresponding to that key should be another dictionary. This inner dictionary should have the following key-value pairs (host, username, password, device_type, use_session_log). use_session_log should be a YAML-boolean, the rest of the values should be strings. Use the "print_yaml.py" python script to print the contents of the YAmL file to stdout.
 
-1d. Duplicate the dictionary created in the previous task except this time use the compressed YAML format. Once again, print the contents of the file using print_yaml.py. The result should match the result of exercise 1c.
+1d. Duplicate the dictionary created in the previous task except this time use 
+the compressed YAML format. Once again, print the contents of the file using 
+print_yaml.py. The result should match the result of exercise 1c.
 
-1e. Create a YAML file that is a nested data structure. The highest level data structure should be a dictionary with a key-name of "network_devices". The value corresponding to this key should be a two-element list. Each element of this list should contain a dictionary with six key-value pairs (host, username, password, device_type, use_session_log, ip_addresses). The ip_addresses key should point to a list of IP addresses that each network device contains (just make up three IP addresses for each device).
 
-Once again, use the python "print_yaml.py" script to print the contents of the YAML file to stdout.
+1e. Create a YAML file that is a nested data structure. The highest level data 
+structure should be a dictionary with a key-name of "network_devices". The value 
+corresponding to this key should be a two-element list. Each element of this list 
+should contain a dictionary with six key-value pairs (host, username, password, 
+device_type, use_session_log, ip_addresses). The ip_addresses key should point 
+to a list of IP addresses that each network device contains (just make up three 
+IP addresses for each device).
 
