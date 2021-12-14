@@ -1,0 +1,13 @@
+
+1a. Create a playbook that uses "ansible.builtin.debug" and prints out a message
+to stdout. This playbook should run on the "local host.
+
+1b. Modify the playbook such that it executes on all of the hosts in the "cisco" group.
+
+1c. Modify the playbook such that it executes on all of the hosts in both the "cisco"
+group and the "arista" group.
+
+1d. Modify the playbook such that you have two plays and one task per play. Each play
+should execute "debug" and print out a message to stdout. The first play should execute
+against the "nxos" group and the second play should execute against the "juniper" group.
+

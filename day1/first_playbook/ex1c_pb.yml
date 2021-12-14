@@ -1,0 +1,9 @@
+---
+- name: Exercise 1C
+  hosts: cisco:arista
+  gather_facts: False
+
+  tasks:
+    - name: Print out a message
+      ansible.builtin.debug:
+        msg: Hello world

@@ -1,0 +1,18 @@
+---
+- name: Exercise 1D (nxos)
+  hosts: nxos
+  gather_facts: False
+
+  tasks:
+    - name: Print out a message
+      ansible.builtin.debug:
+        msg: Hello world
+
+- name: Exercise 1D (juniper)
+  hosts: juniper
+  gather_facts: False
+
+  tasks:
+    - name: Print out a message
+      ansible.builtin.debug:
+        msg: Hello world
