@@ -1,0 +1,9 @@
+---
+- name: Simple playbook
+  hosts: cisco5
+  gather_facts: False
+
+  tasks:
+    - name: First task
+      ansible.builtin.debug:
+        msg: "Hello world"

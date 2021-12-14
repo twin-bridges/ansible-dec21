@@ -7,6 +7,7 @@
     dns2: 8.8.4.4
   vars_files:
     - my_vars.yml
+
   tasks:
     - name: Testing $var locally defined
       ansible.builtin.debug:

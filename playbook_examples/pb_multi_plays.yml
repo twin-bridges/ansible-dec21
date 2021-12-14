@@ -1,0 +1,19 @@
+---
+- name: Play1
+  hosts: cisco5
+  gather_facts: False
+
+  tasks:
+    - name: Hello task
+      ansible.builtin.debug:
+        msg: "Hello"
+
+- name: Play2
+  hosts: cisco6
+  gather_facts: False
+
+  tasks:
+    - name: Hello task
+      ansible.builtin.debug:
+        msg: "Hello"
+
