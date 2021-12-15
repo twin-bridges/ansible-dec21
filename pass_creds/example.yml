@@ -1,0 +1,11 @@
+---
+- name: Credential Example
+  gather_facts: False
+  hosts: arista
+
+  tasks:
+    - name: Execute Show Command
+      arista.eos.eos_command:
+        commands: show vlan
+      register: show_vlan
+

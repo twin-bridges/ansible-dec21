@@ -1,0 +1,13 @@
+---
+- name: Enable Example
+  hosts: cisco1
+  gather_facts: False
+  become: true
+  become_method: enable
+
+  tasks:
+    - name: Execute show run
+      cisco.ios.ios_command:
+        commands: show run
+      register: output
+
