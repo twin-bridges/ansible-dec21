@@ -1,0 +1,13 @@
+---
+- name: When Testing
+  hosts: local
+  gather_facts: False
+  vars:
+    my_str: whatever
+    version: "Cisco IOS running version 15.2"
+
+  tasks:
+    - name: This variable is defined
+      ansible.builtin.debug:
+        msg: Variable defined
+      when: version is defined

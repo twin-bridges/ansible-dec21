@@ -1,0 +1,9 @@
+---
+- name: When Testing
+  hosts: local
+  gather_facts: False
+
+  tasks:
+    - ansible.builtin.debug:
+        msg: Hello World
+

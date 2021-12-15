@@ -1,0 +1,10 @@
+---
+- name: IOS Example
+  hosts: cisco
+  gather_facts: false
+  tasks:
+    - name: "Test *_facts"
+      cisco.ios.ios_facts:
+      register: cisco_facts
+
+

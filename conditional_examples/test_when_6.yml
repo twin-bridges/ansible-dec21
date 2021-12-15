@@ -1,0 +1,14 @@
+---
+- name: When Testing
+  hosts: local
+  gather_facts: False
+
+  vars:
+    my_str: whatever
+    version: "Cisco IOS running version 15.2"
+
+  tasks:
+    - name: Substring in larger string
+      ansible.builtin.debug:
+        msg: This is Cisco IOS
+      when: "'Cisco IOS' in version"

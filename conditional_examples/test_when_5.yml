@@ -1,0 +1,12 @@
+---
+- name: When Testing
+  hosts: local
+  gather_facts: False
+  vars:
+    my_str: whatever
+
+  tasks:
+    - name: Testing string equality
+      ansible.builtin.debug:
+        msg: "{{ my_str }}"
+      when: my_str != 'whatever'

@@ -1,0 +1,15 @@
+---
+- name: NX-OS Example
+  gather_facts: False
+  hosts: nxos
+
+  tasks:
+    - name: "Show command (list of commands)"
+      cisco.nxos.nxos_command:
+        commands: 
+          - show ip int brief vrf management
+          - show ip arp vrf management
+      register: output
+
+    - ansible.builtin.debug:
+        var: output

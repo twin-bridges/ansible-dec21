@@ -1,0 +1,16 @@
+---
+- name: When Testing
+  hosts: local
+  gather_facts: False
+  vars:
+    my_str: whatever
+    version: "Cisco IOS running version 15.2"
+
+  tasks:
+    - ansible.builtin.command: /bin/false
+      register: result
+      ignore_errors: True
+
+    - ansible.builtin.debug:
+        msg: "Hello world (failed result)"
+      when: result is failed

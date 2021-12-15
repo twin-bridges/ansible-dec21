@@ -1,0 +1,14 @@
+---
+- name: Arista Example
+  hosts: arista
+  gather_facts: false
+  tasks:
+    - arista.eos.eos_facts:
+
+    - ansible.builtin.debug:
+        var: ansible_net_model
+
+    - ansible.builtin.debug:
+        msg:
+          - "{{ ansible_net_system }}"
+          - "{{ ansible_net_version }}"

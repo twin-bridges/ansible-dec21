@@ -1,0 +1,23 @@
+---
+- name: Looping over list-of-lists (flattening)
+  hosts: local
+  vars:
+    net_devices:
+      - ["rtr1", "rtr2", "rtr3", "rtr4"]
+      - ["sw1", "sw2", "sw3", "sw4"]
+
+  tasks:
+    - name: Example of list flattening
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      with_items: "{{ net_devices }}"
+
+    - name: Do not flatten
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      with_list: "{{ net_devices }}"
+
+    - name: No flattening
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop: "{{ net_devices }}"

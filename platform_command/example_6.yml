@@ -1,0 +1,23 @@
+---
+- name: IOS Prompting Example
+  hosts: cisco5:cisco6
+  gather_facts: False
+  tasks:
+    - cisco.ios.ios_command:
+        commands:
+          - command: clear counters gigabitEthernet1
+            # Regular expression for "prompt"--simplify
+            # Clear "show interface" counters on this interface [confirm] 
+            prompt: confirm
+            answer: "y"
+      register: output
+
+    - ansible.builtin.debug:
+        var: output
+
+    - cisco.ios.ios_command:
+        commands: show interfaces gigabitEthernet1
+      register: output
+
+    - ansible.builtin.debug:
+        msg: "{{ output.stdout[0] }}"

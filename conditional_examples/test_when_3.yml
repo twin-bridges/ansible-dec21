@@ -1,0 +1,16 @@
+---
+- name: When Testing
+  hosts: local
+  gather_facts: False
+
+  tasks:
+    - name: Hard-coded to False
+      ansible.builtin.debug:
+        msg: Hello World is False
+      when: False
+
+    - name: Hard-coded to True
+      ansible.builtin.debug:
+        msg: Hello World is True
+      when: True
+

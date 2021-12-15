@@ -1,0 +1,15 @@
+---
+- name: EOS Example
+  gather_facts: False
+  hosts: arista
+
+  tasks:
+    - name: Show command using pipe json
+      # vars:
+      #  ansible_connection: httpapi
+      arista.eos.eos_command:
+        commands: show interfaces | json
+      register: output
+
+    - ansible.builtin.debug:
+        var: output.stdout[0]["interfaces"]
