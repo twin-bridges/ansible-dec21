@@ -1,0 +1,20 @@
+---
+- name: Simple playbook
+  hosts: cisco
+  gather_facts: False
+
+  tasks:
+    - name: First task
+      ansible.builtin.debug:
+        msg: "Hello"
+      tags: task1
+
+    - name: Second task
+      ansible.builtin.debug:
+        msg: "World"
+      tags: always 
+
+    - name: Third task
+      ansible.builtin.debug:
+        msg: "Something else"
+      tags: task3

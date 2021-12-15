@@ -1,0 +1,17 @@
+
+Create a directory called "group_vars" in the same directory as your playbook. 
+Within this directory, create a file named "all.yml". 
+
+In this file, define a variable named "desired_eos_version" and set it to a value 
+of "4.18.3". 
+
+Create a playbook that executes on the Arista5 host. This playbook should have a
+single task which uses the "ansible.builtin.debug" module and prints out the
+"desired_eos_version" variable.
+
+Add a task to your playbook to create a new variable using "ansible.builtin.set_fact". 
+Name this variable "device_hostname" and set the value of it equal to the 
+"inventory_hostname" combined with the suffix ".lab.io". 
+
+In a final task, print the value of this variable using debug.
+

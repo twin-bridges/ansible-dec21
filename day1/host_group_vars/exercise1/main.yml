@@ -1,0 +1,16 @@
+---
+- name: Exercise1
+  hosts: arista5
+  gather_facts: False
+  tasks:
+    - name: Print desired eos version
+      ansible.builtin.debug:
+        var: desired_eos_version
+
+    - name: Create a new variable called device_hostname
+      ansible.builtin.set_fact:
+        device_hostname: "{{ inventory_hostname }}.lab.io"
+
+    - name: Print newly created device_hostname variable
+      ansible.builtin.debug:
+        var: device_hostname
