@@ -1,0 +1,10 @@
+---
+- name: Test ping
+  hosts: juniper
+  gather_facts: False
+  tasks:
+    - name: Test reachability
+      vars:
+        ansible_connection: network_cli
+      junipernetworks.junos.junos_ping:
+        dest: 172.30.0.1
