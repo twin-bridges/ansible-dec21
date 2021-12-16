@@ -1,0 +1,12 @@
+---
+- name: VLAN configuration (gathered)
+  hosts: arista5
+  gather_facts: False
+  tasks:
+    - name: Test gathering
+      arista.eos.eos_vlans:
+        state: gathered
+      register: vlans
+
+    - ansible.builtin.debug:
+        var: vlans.gathered
