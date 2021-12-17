@@ -1,0 +1,7 @@
+---
+- name: EOS Example2 (cli_config)
+  hosts: arista
+  gather_facts: False
+  tasks:
+    - ansible.netcommon.cli_config:
+        config: "{{ lookup('template', 'eos_config.j2') }}"
