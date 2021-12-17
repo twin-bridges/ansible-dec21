@@ -1,0 +1,17 @@
+---
+- name: hostvars example2
+  hosts: arista8
+  gather_facts: True
+  tasks:
+    - ansible.builtin.debug:
+        var: hostvars
+
+    - ansible.builtin.debug:
+        msg: "{{ hostvars['arista8'] }}"
+
+    - ansible.builtin.debug:
+        msg: 
+          - "Arista5: {{ hostvars['arista5']['ansible_network_os'] }}"
+          - "Arista6: {{ hostvars['arista6']['ansible_network_os'] }}"
+          - "Arista7: {{ hostvars['arista7']['ansible_network_os'] }}"
+          - "Arista8: {{ hostvars['arista8']['ansible_network_os'] }}"

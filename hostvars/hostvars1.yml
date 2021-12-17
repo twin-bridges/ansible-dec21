@@ -1,0 +1,9 @@
+---
+- name: hostvars example
+  hosts: arista8
+  gather_facts: False
+  tasks:
+    - ansible.builtin.debug:
+        var: hostvars
+        # var: groups
+        # var: inventory_hostname
