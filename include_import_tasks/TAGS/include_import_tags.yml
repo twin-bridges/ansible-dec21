@@ -1,0 +1,11 @@
+---
+- hosts: local
+  tasks:
+    - name: "Import (static): tags DO propogate downward"
+      ansible.builtin.import_tasks: common_tasks2.yml
+      tags: test_tag
+
+    - name: "Include (dynamic): tags do NOT propogate downward"
+      ansible.builtin.include_tasks: common_tasks2.yml
+      tags: test_tag
+

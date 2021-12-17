@@ -1,0 +1,13 @@
+---
+- hosts: local
+  vars:
+    ip_address: 172.16.31.1
+  tasks:
+
+#    - name: "Import (static): propagates downward"
+#      ansible.builtin.import_tasks: common_tasks3.yml
+#      when: 'ip_address == "172.16.31.1"'
+
+    - name: "Include (dynamic): does NOT propagate downward"
+      ansible.builtin.include_tasks: common_tasks3.yml
+      when: 'ip_address == "172.16.31.1"'

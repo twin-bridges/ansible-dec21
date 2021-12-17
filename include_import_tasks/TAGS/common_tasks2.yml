@@ -1,0 +1,9 @@
+- name: First task (common)
+  ansible.builtin.debug:
+    msg: Hello world
+  tags: 
+    - test_tag
+
+- name: Second task (common)
+  ansible.builtin.debug:
+    msg: Hello world2
