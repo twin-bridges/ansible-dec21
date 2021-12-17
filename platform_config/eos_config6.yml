@@ -1,0 +1,8 @@
+---
+- name: Example6
+  hosts: arista5
+  gather_facts: True
+  tasks:
+    - name: Global config
+      arista.eos.eos_config:
+        src: eos_config.j2

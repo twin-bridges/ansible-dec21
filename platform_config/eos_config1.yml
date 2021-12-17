@@ -1,0 +1,11 @@
+---
+- name: Example1
+  hosts: arista5 
+  gather_facts: False
+  tasks:
+    - name: Global config
+      arista.eos.eos_config:
+        lines:
+          - ip domain-name bogus.com
+          - ntp server 130.126.24.24
+          - ntp server 152.2.21.1

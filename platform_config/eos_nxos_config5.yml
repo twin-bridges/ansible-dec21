@@ -1,0 +1,20 @@
+---
+- name: Example of joint EOS and NX-OS config
+  hosts: arista5:nxos1
+  gather_facts: True
+  tasks:
+    - name: Global config (EOS)
+      arista.eos.eos_config:
+        src: eos_config.txt
+        save_when: changed
+        diff_against: running
+      when: ansible_facts.net_system == "eos"
+      tags: eos
+
+    - name: Global config (NX-OS)
+      cisco.nxos.nxos_config:
+        src: nxos_config.txt
+        save_when: changed
+        diff_against: running
+      when: ansible_facts.net_system == "nxos"
+      tags: nxos

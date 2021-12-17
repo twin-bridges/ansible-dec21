@@ -1,0 +1,4 @@
+ip domain-name bogus.com
+ip name-server 8.8.8.8 8.8.4.4
+ntp server 130.126.24.24 use-vrf management
+ntp server 152.2.21.1 use-vrf default

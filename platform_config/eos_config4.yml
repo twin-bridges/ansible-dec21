@@ -1,0 +1,9 @@
+---
+- name: Example4
+  hosts: arista 
+  gather_facts: True
+  tasks:
+    - name: Global config from file
+      arista.eos.eos_config:
+        src: new_config.txt
+        save_when: changed

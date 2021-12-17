@@ -1,0 +1,13 @@
+---
+- name: Example2
+  hosts: arista5 
+  gather_facts: False
+  tasks:
+    - name: Global config
+      arista.eos.eos_config:
+        lines:
+          - "ip domain-name {{ domain_name }}"
+          - "ntp server {{ ntp_server1 }}"
+          - "ntp server {{ ntp_server2 }}"
+        save_when: changed
+        # backup: True

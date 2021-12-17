@@ -1,0 +1,29 @@
+---
+- name: Example7
+  hosts: cisco1:cisco2
+  gather_facts: True
+
+  tasks:
+    - name: Check the startup-config against the running-config
+      cisco.ios.ios_config:
+        diff_against: startup
+        diff_ignore_lines:
+          - ntp clock .*
+          - certificate self-signed .*
+      tags: diff_against
+
+    - cisco.ios.ios_config:
+        lines:
+          - "ip domain name {{ domain_name }}"
+          - "ip name-server {{ dns_server1 }}"
+          - "ip name-server {{ dns_server2 }}"
+          - "ntp server {{ ntp_server1 }}"
+          - "ntp server {{ ntp_server2 }}"
+        diff_against: running
+        save_when: changed
+      tags: ios_config
+
+#    - name: Check against a reference configuration
+#      cisco.ios.ios_config:
+#        diff_against: intended
+#        intended_config: "{{ lookup('file', 'cisco1_config.txt') }}"

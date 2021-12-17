@@ -1,0 +1,12 @@
+---
+- name: Verify config changes
+  hosts: cisco5
+  gather_facts: False
+  tasks:
+    - cisco.ios.ios_command:
+        #commands: "show run | inc domain"
+        commands: "show run | inc name-server"
+      register: output
+
+    - ansible.builtin.debug:
+        var: output
