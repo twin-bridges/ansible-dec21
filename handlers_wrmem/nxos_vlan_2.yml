@@ -1,0 +1,16 @@
+---
+- name: NXOS Example
+  hosts: nxos
+  tasks:
+    - name: Configure NEXUS VLANs
+      cisco.nxos.nxos_vlan:
+        vlan_id: "{{ item.vlan_id }}"
+        admin_state: "{{ item.admin_state }}"
+        name: "{{ item.name }}"
+      loop: "{{ vlans }}"
+
+    - name: write mem
+      cisco.nxos.nxos_command:
+        commands: copy run start
+      changed_when: True
+      tags: wr_mem

@@ -1,0 +1,13 @@
+---
+vlans_common:
+  - vlan_id: 550 
+    admin_state: up
+    name: BLACK
+  - vlan_id: 551 
+    admin_state: up
+    name: ORANGE
+  - vlan_id: 552 
+    admin_state: up
+    name: PINK
+
+vlans: "{{ vlans_common }} + {{ vlans_unique|default([]) }}"
