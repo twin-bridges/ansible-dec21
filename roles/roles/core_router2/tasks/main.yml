@@ -1,0 +1,7 @@
+---
+- ansible.builtin.debug:
+    msg: "DNS1: {{ dns_server1 }}"
+
+- ansible.builtin.debug:
+    msg: "DNS2: {{ dns_server2 }}"
+

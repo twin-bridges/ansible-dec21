@@ -1,0 +1,6 @@
+---
+- name: Original way for using roles
+  hosts: vmx1
+  gather_facts: False
+  roles:
+    - common
