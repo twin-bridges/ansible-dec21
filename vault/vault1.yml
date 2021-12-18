@@ -1,0 +1,12 @@
+---
+- name: Using vault
+  hosts: cisco
+  gather_facts: False
+  tasks:
+    - cisco.ios.ios_facts:
+
+    - ansible.builtin.debug:
+        var: ansible_net_model
+
+    - cisco.ios.ios_command:
+        commands: show ip int brief
