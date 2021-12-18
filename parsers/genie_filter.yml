@@ -1,0 +1,20 @@
+---
+- hosts: cisco5
+  gather_facts: false
+  vars:
+    command: show ip interface brief
+
+  tasks:
+    - name: Executing command
+      cisco.ios.ios_command:
+        commands: "{{ command }}"
+      register: output
+
+    - ansible.builtin.debug:
+        var: output
+
+    - ansible.builtin.set_fact:
+        output_struct: "{{ output.stdout[0] | clay584.genie.parse_genie(command=command, os='iosxe') }}"
+
+    - ansible.builtin.debug:
+        msg: "{{ output_struct }}"

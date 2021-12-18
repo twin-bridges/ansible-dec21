@@ -1,0 +1,30 @@
+---
+- name: RegEx Example1
+  hosts: cisco5
+  gather_facts: False
+
+  tasks:
+    - name: Executing command
+      cisco.ios.ios_command:
+        commands: show ip int brief
+      register: output
+
+    - ansible.builtin.set_fact:
+        output: "{{ output.stdout[0] }}"
+
+    - name: Strip header information
+      ansible.builtin.set_fact:
+        show_ip: "{{ output | regex_replace('Interface.*Protocol') | trim }}"
+
+    - ansible.builtin.debug: 
+        msg: "{{ show_ip.splitlines() }}"
+
+    - name: Extract interface and IP columns
+      ansible.builtin.set_fact:
+        show_ip_list: "{{ show_ip | regex_findall('^(\\S+)\\s+(\\S+)', multiline=True) }}"
+
+    - name: Show interfaces with IP addresses
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop: "{{ show_ip_list }}"
+      when: "item[1] != 'unassigned'"
