@@ -1,0 +1,48 @@
+---
+- name: Test lookups
+  hosts: local
+  vars:
+    number: "22"
+    my_dict:
+      key1: val1
+      key2: val2
+      key3: val3
+      key4: val4
+
+  tasks:
+    - ansible.builtin.debug:
+        var: number
+      when: number | int == 22
+
+    - ansible.builtin.debug:
+        msg: "{{ my_dict | to_nice_yaml(indent=4) }}"
+
+    - ansible.builtin.debug:
+        msg: "{{ my_dict | to_nice_json(indent=4) }}"
+
+    - ansible.builtin.set_fact:
+        data: "{{ lookup('file', 'ip_addresses.yml') | from_yaml }}"
+
+    - ansible.builtin.debug:
+        var: data.ip_addresses.la
+
+    - ansible.builtin.set_fact:
+        locations: "{{ lookup('file', 'locations.json') | from_json }}"
+
+    - ansible.builtin.debug:
+        var: locations["seattle"]
+
+    - name: Default value
+      ansible.builtin.debug:
+        msg: "{{ unknown_var | default('Hello') }}"
+
+    - name: touch files with an optional mode
+      ansible.builtin.file:
+        dest: "{{ item.path }}"
+        state: touch
+        mode: "{{ item.mode | default(omit) }}"
+      loop:
+        - path: foo.txt
+        - path: bar.txt
+        - path: baz.txt
+          mode: "0444"

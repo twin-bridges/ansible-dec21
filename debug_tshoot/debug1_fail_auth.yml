@@ -1,0 +1,16 @@
+---
+
+- name: Bad auth
+  hosts: nxos
+  gather_facts: False
+
+  tasks:
+    - name: Executing 'show interface' command
+      vars:
+        ansible_ssh_pass: invalid_pass
+      cisco.nxos.nxos_command:
+        commands: show interface
+      register: output
+
+    - ansible.builtin.debug:
+        var: output

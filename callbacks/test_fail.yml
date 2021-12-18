@@ -1,0 +1,17 @@
+---
+
+- name: Test Playbook Failure to see behavior of callback plugins
+  hosts: cisco5
+  gather_facts: False
+  vars:
+    fsm_template: "cisco_ios_show_ip_interface_brief.template"
+
+  tasks:
+    - name: Executing command
+      cisco.ios.ios_command:
+        commands: show ip int brief
+      # register: output
+
+    - name: Playbook will fail here 'output' is not defined
+      ansible.builtin.set_fact:
+        show_ip: "{{ output.stdout[0] | parse_cli_textfsm(fsm_template) }}"
