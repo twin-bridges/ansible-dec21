@@ -1,0 +1,5 @@
+- ansible.builtin.debug:
+    msg: "{{ 'Hello world' | some_filter }}"
+
+- ansible.builtin.debug:
+    msg: "{{ 'Hello world' | another_filter('well', 'actually') }}"

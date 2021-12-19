@@ -1,0 +1,16 @@
+---
+- name: Show IP Int Brief
+  hosts: cisco5
+  gather_facts: False
+
+  tasks:
+    - name: Executing command
+      cisco.ios.ios_command:
+        commands: show ip int brief
+      register: output
+
+    - ansible.builtin.set_fact:
+        show_ip: "{{ output.stdout[0] }}"
+
+    - ansible.builtin.debug:
+        msg: "{{ show_ip | show_ip_filter }}"
