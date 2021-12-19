@@ -1,0 +1,12 @@
+---
+- name: Testing a new module
+  hosts: local
+  tasks:
+    - name: Test my module
+      test_module:
+        name: Hello
+        new: True
+      register: output
+
+    - ansible.builtin.debug:
+        var: output

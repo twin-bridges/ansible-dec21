@@ -1,0 +1,9 @@
+---
+- name: Troubleshooting modules
+  hosts: cisco1
+  gather_facts: False
+  tasks:
+    - name: Module troubleshooting
+      broken_module:
+        name: Hello
+        new: True
