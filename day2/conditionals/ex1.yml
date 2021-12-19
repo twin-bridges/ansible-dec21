@@ -1,0 +1,12 @@
+---
+- name: Exercise1
+  hosts: arista
+  gather_facts: True
+
+  tasks:
+    - ansible.builtin.debug:
+        msg: "Found arista5"
+      when: inventory_hostname == "arista5"
+
+    - ansible.builtin.debug:
+        var: hostvars

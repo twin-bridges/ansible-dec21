@@ -1,0 +1,10 @@
+
+Create an Ansible playbook that executes against all of the devices
+in inventory. Set gather_facts to False.
+
+Expand upon the group_vars and host_vars from exercise2. This time
+add a host_vars variable for both cisco5 and cisco6 that sets the
+bgp_asn to 33.
+
+Create a task that prints the bgp_asn, but only if the bgp_asn value
+is 33.

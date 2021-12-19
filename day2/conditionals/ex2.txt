@@ -1,0 +1,12 @@
+
+Create an Ansible playbook that executes against all of the devices
+in inventory. Set gather_facts to False.
+
+Create a group_vars variable that applies to all of the devices in the
+arista group. This variable should be named "bgp_asn" and have a value of
+"42".
+
+Add a task using the debug module that prints out the value of this bgp_asn
+variable. Note, you will need to control the logic of this task such that
+the task will not execute for devices that do not have this bgp_asn variable.
+

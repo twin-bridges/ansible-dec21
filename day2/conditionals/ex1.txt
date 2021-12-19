@@ -1,0 +1,7 @@
+
+Create an Ansible playbook that executes against the "arista" group.
+
+Add a task using the "debug" module that prints out a message when the
+'inventory_hostname' is 'arista5'. Remember inventory_hostname is the
+name of the device in inventory.
+

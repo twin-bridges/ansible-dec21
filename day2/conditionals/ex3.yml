@@ -1,0 +1,9 @@
+---
+- name: Exercise3
+  hosts: all
+  gather_facts: False
+
+  tasks:
+    - ansible.builtin.debug:
+        msg: "BGP ASN: {{ bgp_asn }}"
+      when: bgp_asn is defined and bgp_asn == "33"
