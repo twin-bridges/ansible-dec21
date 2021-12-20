@@ -1,0 +1,12 @@
+---
+- name: Exercise1 (nxos_command)
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Gather show version output
+      cisco.nxos.nxos_command:
+        commands: show version
+      register: show_version
+
+    - ansible.builtin.debug:
+        var: show_version

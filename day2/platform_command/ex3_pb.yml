@@ -1,0 +1,14 @@
+---
+- name: Exercise3 (nxos_command)
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Gather show command output
+      cisco.nxos.nxos_command:
+        commands: 
+          - show version
+          - show lldp neighbors
+      register: show_out
+
+    - ansible.builtin.debug:
+        var: show_out.stdout_lines[1]

@@ -1,0 +1,7 @@
+
+Modify exercise2 such that the debug task prints only the output of "show lldp neighbors"
+to stdout. 
+
+You will have to inspect the data structures in the debug output to determine which
+fields you need to select (to only retrieve the LLDP output).
+

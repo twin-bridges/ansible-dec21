@@ -1,0 +1,5 @@
+
+Modify the Playbook from exercise1 to run both "show version" and "show lldp neighbors".
+
+Once again, "register" the result and print the output.
+

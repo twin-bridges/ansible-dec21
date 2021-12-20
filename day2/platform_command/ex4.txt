@@ -1,0 +1,14 @@
+
+Create a Playbook that clears the logging buffer on the cisco6 device. The 
+command to clear the logging buffer is: "clear logging". 
+
+This command will prompt for confirmation ("Clear logging buffer [confirm]"). 
+
+Ensure that your task handles the confirmation appropriately. 
+
+Register and print the results of the task to stdout. 
+
+Remember that "prompt" takes a regular expression so you either need to simplify 
+it or backslash escape special regex characters (I strongly recommend you 
+simplify your pattern to avoid regular expression characters, if possible).
+

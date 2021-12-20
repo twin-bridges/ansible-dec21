@@ -1,0 +1,8 @@
+
+Create a Playbook that operates against the "nxos" group. This Playbook should 
+contain a Play that uses the "nxos_command" module to gather the output from 
+"show version". 
+
+Register the result of this command to a variable and print the variable out in
+a second task.
+
