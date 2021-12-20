@@ -1,7 +1,7 @@
 Using a single Jina2 template and an Ansible Playbook generate a configuration 
 matching the following for each of the four Arista switches:
 
-https://github.com/twin-bridges/ansible-dec21/blob/main/day2/jinja2/CFGS/arista5-ref.txt
+https://github.com/twin-bridges/ansible-dec21/blob/main/day2/jinja2/arista5-ref.txt
 
 The four Arista switch configurations should be identical to each other except 
 the hostname and the VLAN1 IP address will change. 
