@@ -1,0 +1,98 @@
+
+Use Jinja2 templating and an Ansible playbook to generate the following interface 
+and BGP configurations for nxos1 and nxos2 respectively.
+ 
+##### nxos1 #####
+interface Ethernet1/4
+  ip address 172.31.254.1/30
+!
+interface loopback101
+  ip address 172.31.101.101/32
+!
+interface loopback102
+  ip address 172.31.102.101/32
+!
+!
+feature bgp
+router bgp 22
+  router-id 172.31.101.101
+  address-family ipv4 unicast
+    network 172.31.101.101/32
+    network 172.31.102.101/32
+  neighbor 172.31.254.2
+    remote-as 22
+    description configured by ansible
+    address-family ipv4 unicast
+!
+
+
+##### nxos2 #####
+interface Ethernet1/4
+  ip address 172.31.254.2/30
+!
+interface loopback101
+  ip address 172.31.101.102/32
+!
+interface loopback102
+  ip address 172.31.102.102/32
+!
+!
+feature bgp
+router bgp 22
+  router-id 172.31.101.102
+  address-family ipv4 unicast
+    network 172.31.101.102/32
+    network 172.31.102.102/32
+  neighbor 172.31.254.1
+    remote-as 22
+    description configured by ansible
+    address-family ipv4 unicast
+!
+
+
+For this process, you should have two separate Jinja2 templates: one for the 
+interfaces section and one for the BGP configuration.
+
+The following items should be variables in your Jinja2 templates:
+----------
+interfaces
+{{ eth1_4_ip_address }}
+{{ eth1_4_netmask }}
+{{ loopback101_ip_address }}
+{{ loopback101_netmask }}
+{{ loopback102_ip_address }}
+{{ loopback102_netmask }}
+
+bgp
+{{ bgp_asn }}
+{{ bgp_peer_ip }}
+----------
+
+The BGP networks that are announced should also be made into variables in some 
+way (these values would ultimately be the loopback101 and loopback102 IP 
+addresses and netmasks).
+
+I recommend that you define all of these variables in host_vars and group_vars. 
+In my reference solution, I only defined the {{ bgp_asn }} in group_vars; everything 
+else was defined in host_vars.
+
+I also defined the networks to advertise as follows (for example, in 
+host_vars/nxos1/bgp.yml):
+
+----------
+bgp_peer_ip: 172.31.254.2
+bgp_advertise: 
+  - "{{ loopback101_ip_address }}/{{ loopback101_netmask }}"
+  - "{{ loopback102_ip_address }}/{{ loopback102_netmask }}"
+
+In other words, I defined the variables for {{ loopback101_ip_address }} and 
+{{ loopback101_netmask }} in host_vars/nxos1/interfaces.yml and then used these 
+variables in my bgp.yml file.
+
+One other note, you can use the Ansible assemble module to assemble multiple 
+files into one file. In other words, if you check my reference solution, you will 
+see I used Jinja2 templating to generate one configuration file for the interfaces 
+and one configuration file for the BGP configuration. I then used the assemble 
+module to take these two separate files and create one unified configuration file 
+from them.
+
