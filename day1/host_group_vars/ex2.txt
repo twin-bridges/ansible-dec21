@@ -38,5 +38,5 @@ these "host_vars/ciscox" directories create a file named "ip_addresses.yml". Ins
 this file create a "loopback0" variable and assign this variable a unique IPv4 
 address (for example, 10.1.1.1 for cisco1).
 
-Execute a playbook that prints out both the "bgp_asn" and the "loopback0" IP address.
+Create a playbook that prints out both the "bgp_asn" and the "loopback0" IP address.
 
