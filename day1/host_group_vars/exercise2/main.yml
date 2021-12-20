@@ -6,3 +6,7 @@
     - name: Print BGP ASN for cisco hosts
       ansible.builtin.debug:
         msg: "The ASN for host {{ inventory_hostname }} is {{ bgp_asn }}"
+
+    - name: Print out loopback0 IP address
+      ansible.builtin.debug:
+        msg: "Loopback0: {{ loopback0 }}"
