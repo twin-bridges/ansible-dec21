@@ -24,25 +24,19 @@ ok: [cisco6] => {
 }
 
 
-2b. Create a "host_vars" directory, and a subdirectory named "cisco5" within it. Inside this, "host_vars/cisco5", create a file named "bgp.yml". Inside this file, create a variable named "bgp_asn" using a different ASN value. Re-run the Playbook. You should observe that the host_vars "bgp_asn" has higher priority than the group_vars "bgp_asn" variable.
+2b. Create a "host_vars" directory, and a subdirectory named "cisco5" within it. 
+Inside this, "host_vars/cisco5", create a file named "bgp.yml". Inside this file, 
+create a variable named "bgp_asn" using a different ASN value. Re-run the Playbook. 
+You should observe that the host_vars "bgp_asn" has higher priority than the 
+group_vars "bgp_asn" variable.
 
-2c. Create the following subdirectories: cisco1, cisco2, cisco6 (inside the host_vars directory). The "host_vars/cisco5" subdirectory should already exist. Note, the directory names must exactly match the Ansible "inventory_hostname". In each of these ciscoX directories create a file named "ip_addresses.yml". Inside this file create a "loopback0" variable and assign this variable a unique IPv4 address (for example, 1.1.1.1 for cisco1).
 
-Inside the same ciscoX directory, create a second file named "bgp.yml". In this file create a variable "bgp_router_id" and assign it a value of the "loopback0" variable you just created (remember your  "{{ loopback0 }}" notation). The "cisco5" bgp.yml file should contain both the "bgp_asn" and the "bgp_router_id".
+2c. Create the following subdirectories: cisco1, cisco2, cisco6 (inside the host_vars 
+directory). The "host_vars/cisco5" subdirectory should already exist. Note, the 
+directory names must exactly match the Ansible "inventory_hostname". In each of 
+these "host_vars/ciscox" directories create a file named "ip_addresses.yml". Inside 
+this file create a "loopback0" variable and assign this variable a unique IPv4 
+address (for example, 10.1.1.1 for cisco1).
 
-Finally, modify your Playbook such that your output looks similar to the following.
-TASK [Print BGP ASN for cisco hosts] **************************************************************************************************
-ok: [cisco2] => {
-    "msg": "The ASN for host cisco2 is 65001, the router-id is 2.2.2.2"
-}
-ok: [cisco1] => {
-    "msg": "The ASN for host cisco1 is 65001, the router-id is 1.1.1.1"
-}
-ok: [cisco6] => {
-    "msg": "The ASN for host cisco6 is 65001, the router-id is 6.6.6.6"
-}
-ok: [cisco5] => {
-    "msg": "The ASN for host cisco5 is 65535, the router-id is 5.5.5.5"
-}
+Execute a playbook that prints out both the "bgp_asn" and the "loopback0" IP address.
 
-The above exercise demonstrates that you can store additional inventory variables in host_vars, and group_vars. These subdirectories also allow you to divide your YAML into multiple files which can simplify inventory management.
