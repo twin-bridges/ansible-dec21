@@ -1,0 +1,12 @@
+---
+- name: Exercise1 (junos_command)
+  hosts: juniper
+  gather_facts: False
+  tasks:
+    - name: Gather show command output
+      junipernetworks.junos.junos_command:
+        commands: show interface terse
+      register: output 
+
+    - ansible.builtin.debug:
+        var: output

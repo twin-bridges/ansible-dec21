@@ -1,0 +1,18 @@
+---
+- name: Exercise2 (enable)
+  hosts: cisco1
+  gather_facts: False
+  become: True
+  become_method: enable
+  tasks:
+    - name: Send test show command (should work)
+      cisco.ios.ios_command:
+        commands: show ip int brief
+
+    - name: Send "show run" command (requires 'enable')
+      cisco.ios.ios_command:
+        commands: show run
+      register: show_run
+
+    - ansible.builtin.debug:
+        var: show_run.stdout_lines[0]

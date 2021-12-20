@@ -1,0 +1,31 @@
+
+Modify the special ansible-hosts.ini file such that the ansible_user
+for the "cisco" group is named "test9". This test9 user is defined on the
+"cisco1" router, but only connects with privilege level1.
+
+Create an Ansible playbook that connects to "cisco1" using your special
+ansible-hosts.ini file. Use the ios_command module to execute "show ip int brief".
+This command should work properly since it does not require any elevated
+privileges.
+
+Create a second task that uses ios_command and attempts to execute "show run".
+This command should fail (at this point) since we are still using privilege
+level1. 
+
+Reminder: you will still need to use the "-k" argument to ansible-playbook to
+send the regular SSH password.
+
+Now add the following two arguments at the "play" level:
+
+  become: true
+  become_method: enable
+
+Expand your playbook to "register" the show run output and then print it out in
+a subsequent "debug" task.
+
+Re-execute your playbook and pass in both the "-k" and the "-K" arguments. Note,
+the enable secret is the same as the standard lab SSH password.
+
+Verify your playbook properly elevates priviles and displays the "show run"
+output.
+

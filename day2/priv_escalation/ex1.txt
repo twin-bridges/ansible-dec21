@@ -1,0 +1,13 @@
+
+Copy the ~/ansible-hosts.ini file into a different folder. Remove the
+ansible_ssh_pass from the all:vars section.
+
+Create a playbook that connects to the two VMX routers. Use the junos_command
+module to execute "show interface terse" on these two VMX devices.
+
+Execute "ansible-playbook" and pass in the "-i ./ansible-hosts.ini" to use the 
+local ansible-hosts.ini file (without the SSH password).
+
+Also pass in the -k argument to ansible-playbook (to prompt for the SSH
+password). Verify the playbook executes properly.
+
