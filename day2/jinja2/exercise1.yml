@@ -1,5 +1,5 @@
 ---
-- name: Exercise 4
+- name: Jinja2 exercise
   hosts: arista
   gather_facts: False
   tasks:
