@@ -1,0 +1,12 @@
+Create a playbook that executes against localhost.
+
+Using the "vars" keyword in a play define a dictionary named "dallas_devices".
+This dictionary should have three keys: rtr1, rtr2, rtr3. Each of the keys
+should point to values that is another dictionary. This inner dictionary should
+have two key-value pairs: ip_addr, and device_type (where ip_addr is some
+random IP address and device_type is either "arista_eos" or "juniper_junos".
+
+Create a task that uses "debug" and loops over this "dallas_devices" dictionary.
+For each key in the outer dictionary, it should print out both the key and IP
+address from the inner dictionary.
+

@@ -1,0 +1,20 @@
+---
+- name: With Testing
+  hosts: local
+  vars:
+    dallas_devices:
+      rtr1:
+        ip_addr: 10.10.10.1
+        device_type: arista_eos
+      rtr2:
+        ip_addr: 10.10.20.1
+        device_type: arista_eos
+      rtr3:
+        ip_addr: 10.10.30.1
+        device_type: juniper_junos
+
+  tasks:
+    - name: Test loop
+      ansible.builtin.debug:
+        msg: "{{ item.key }} --> {{ item.value['ip_addr'] }}"
+      loop: "{{ dallas_devices | dict2items }}"

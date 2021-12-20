@@ -1,0 +1,8 @@
+Create a playbook that executes against localhost.
+
+Using the "vars" keyword in a play define a list of five sites: "sf, la,
+dallas, nyc, and miami".
+
+Create a task that uses "debug" and loops over the list of five sites. The
+debug should only print output when the site equals "nyc".
+

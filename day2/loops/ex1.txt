@@ -1,0 +1,13 @@
+Create a playbook that executes against localhost.
+
+Using the "vars" keyword in a play define two lists of IP addresses.
+List1 should be four IP addresses in San Francisco. List2 should be
+four IP addresses in Dallas. Just make up IP addresses for each location.
+
+Create a task that uses "debug" to print out all of the IP addresses for
+the two lists. You should use a "loop" to accomplish this. 
+
+Note, in Ansible you can concatenate two lists by doing:
+
+"{{ list1 }} + {{ list2 }}"
+

@@ -1,0 +1,17 @@
+---
+- name: Loops Ex2
+  hosts: local
+  vars:
+    sites:
+        - sf
+        - la
+        - dallas
+        - nyc
+        - miami
+  tasks:
+    - name: Test with_items
+      ansible.builtin.debug:
+        msg: "NYC Site: {{ item }}"
+      with_items: "{{ sites }}"
+      when: "item == 'nyc'"
+
