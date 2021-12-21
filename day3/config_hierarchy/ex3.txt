@@ -1,0 +1,17 @@
+
+Using the configurations generated from:
+
+  {{ github_repo }}/day2/jinja2/ex2.txt
+
+Configure both BGP and the relevant interface on both nxos1 and nxos2.
+
+In other words, Jinja2 exercise2 was an exercise where we used Jinja2 to generate 
+both BGP and interface configurations for nxos1 and nxos2, BUT we did not deploy 
+those configurations. Now you should use the nxos_config module to deploy those 
+configurations.
+
+Verify the BGP session reached the established using the nxos_command module. 
+
+For this verification task, you can simply execute "show ip bgp summary" using 
+nxos_command and visually verify its output using the "debug" module.
+
