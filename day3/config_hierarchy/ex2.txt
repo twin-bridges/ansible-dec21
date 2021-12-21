@@ -1,0 +1,27 @@
+
+Repeat exercise1, except one of the last three access-list lines is now at the 
+beginning. 
+
+Additionally convert this moved ACL entry from being a "permit" statement to being 
+a "deny" statement. 
+
+Ensure that executing your new playbook results in the correct final access-list 
+being configured. For example, my new access-list would look as follows:
+
+ip access-list extended TEST-ANSIBLEX
+ deny   ip host 10.1.1.9 any
+ permit ip host 10.1.1.1 any
+ permit ip host 10.1.1.2 any
+ permit ip host 10.1.1.3 any
+ permit ip host 10.1.1.4 any
+ permit ip host 10.1.1.5 any
+ permit ip host 10.1.1.6 any
+ permit ip host 10.1.1.7 any
+ permit ip host 10.1.1.8 any
+ permit ip host 10.1.1.10 any
+
+Once again use the "ios_command" module and the "debug" module to verify that 
+your updated ACL is properly configured.
+
+Your playbook should be idempotent.
+
