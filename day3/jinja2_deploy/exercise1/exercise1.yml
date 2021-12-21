@@ -1,5 +1,5 @@
 ---
-- name: Exercise 4
+- name: Jinja2 Deploy
   hosts: nxos
   gather_facts: False
   tasks:
