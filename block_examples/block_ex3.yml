@@ -15,10 +15,10 @@
     
         - ansible.builtin.debug:
             msg: "{{ show_ip.splitlines() }}"
-      when: 'ansible_network_os == "ios"'
       rescue:
         - ansible.builtin.debug:
             msg: "An error happened...I want to do something."
       always:
         - ansible.builtin.debug:
             msg: "Always happens..."
+      when: 'ansible_network_os == "ios"'
