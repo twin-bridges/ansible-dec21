@@ -1,0 +1,19 @@
+
+Use the nxos_l3_interfaces resource module to configure an IP address on 
+Ethernet1/4 on both NX-OS switches. 
+
+The interface name (Ethernet1/4), the IP address, and the netmask should be 
+stored in host_vars. You should be using the "merged" state for this operation. 
+
+If "Ethernet1/4" is being used by another student, then you can use either 
+"Ethernet1/3" or "Ethernet1/2". 
+
+For the IP network, choose a random /24 network from the 10.227.X.X range. 
+Use 10.227.X.1 for nxos1 and 10.227.X.2 for nxos2.
+
+After configuring the interfaces, use the net_ping module to verify IP connectivity 
+between the two NX-OS switches. 
+
+Use an assert statement(s) to verify the ping worked correctly (>=80% of the ping 
+responses should be returned).
+

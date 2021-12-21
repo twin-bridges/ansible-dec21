@@ -1,0 +1,17 @@
+
+Use the eos_vlans resource module to create a VLAN and to assign the VLAN a name 
+on all four of the Arista switches. The VLAN ID should be in the VLAN range from 
+VLAN 200 to 299.
+
+After this VLAN is created, then use the eos_l2_interfaces resource module to assign 
+that VLAN to one of the interfaces on all four of the Arista switches. You should 
+either Ethernet5, Ethernet6, or Ethernet7 (do NOT use Ethernet1). 
+
+Your VLAN ID, VLAN name, and interface name should be stored in either host_vars or 
+group_vars.
+
+Using eos_command and a show command(s), verify that your VLAN exists and that the 
+Ethernet interface you chose was assigned to that interface (I used "show vlan | json"). 
+
+This verification will probably require that you use an assert statements.
+

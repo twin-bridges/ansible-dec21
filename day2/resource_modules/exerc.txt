@@ -1,0 +1,21 @@
+3. Use the nxos_l3_interfaces resource module to configure an IP address on Ethernet1/4 on both NX-OS switches. The interface name (Ethernet1/4), the IP address, and the netmask should be stored in host_vars. You should be using the "merged" state for this operation. If "Ethernet1/4" is being used by another student, then you can use either "Ethernet1/3" or "Ethernet1/2". For IP network, choose a random /24 network from the 10.227.X.X range. Use 10.227.X.1 for nxos1 and 10.227.X.2 for nxos2.
+
+After configuring the interfaces, use the net_ping module to verify IP connectivity between the two NX-OS switches. Using an assert statement(s) in your playbook, verify the ping worked correctly (>=80% of the ping responses should be returned).
+
+
+4. Use the eos_vlans resource module to create a VLAN and to assign the VLAN a name on all four of the Arista switches. The VLAN ID should be in the VLAN range from VLAN 200 to 299.
+
+After this VLAN is created, then use the eos_l2_interfaces resource module to assign that VLAN to one of the interfaces on all four of the Arista switches. You should either Ethernet5, Ethernet6, or Ethernet7 (do NOT use Ethernet1). Your VLAN ID, VLAN name, and interface name should be stored in either host_vars or group_vars.
+
+Using eos_command and a show command(s), verify that your VLAN exists and that the Ethernet interface you chose was assigned to that interface (I used "show vlan | json"). This verification will probably require that you use an assert statements.
+
+
+5. Use the nxos_interfaces resource module to configure "Ethernet1/3" on both nxos1 and nxos2 as a layer2 port (i.e. configure "switchport" on that interface). If "Ethernet1/3" is being used by another student then use either "Ethernet1/1" or "Ethernet1/2" instead.
+
+Use the l2_interface module to configure the port for trunking ("switchport mode trunk). Note, this is the Ansible issue that requires us to use the deprecated feature module instead of using the newer resources module.
+
+Using the l2_interfaces resource module configure the trunk native VLAN to VLAN4. Yes, it is ugly to use both "l2_interface" and "l2_interfaces", but I wanted you to get more experience with the resource modules.
+
+Using the nxos_command module execute a show command on the switches and capture that output. Use this output and the Ansible assert module to verify that the interface is trunking and that the native VLAN is correct. I used 'show interface {{ intf_name }} trunk | json' for my show command.
+
+The intf_name, intf_mode (layer2), switchport_mode (trunk), and the native_vlan should all be stored in host_vars/group_vars and should NOT be hard-coded into your Ansible playbook.
