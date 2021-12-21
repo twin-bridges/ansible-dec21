@@ -1,0 +1,52 @@
+
+Configure the following items on all of the lab network devices (2 x Cisco IOS,
+2 x IOS-XE devices, 4 x Arista devices, 2 x NX-OS devices, and 2 x Juniper vMX 
+devices):
+---
+ntp_server1: 130.126.24.24
+ntp_server2: 152.2.21.1
+domain_name: bogus.com
+dns_server1: 8.8.8.8
+dns_server2: 8.8.4.4
+
+The above variables should all be stored in group_vars or host_vars.
+
+The syntax for each platform is as follows:
+
+IOS
+-----
+ip name-server x.x.x.x
+ip domain name bogus.com
+ntp server y.y.y.y
+
+IOS-XE
+------
+ip name-server x.x.x.x x.x.y.y
+ip domain name bogus.com
+ntp server y.y.y.y
+
+Arista EOS
+----------
+ip name-server x.x.x.x
+ip domain-name bogus.com
+ntp server y.y.y.y
+
+NX-OS
+-----
+ip domain-name bogus.com
+ip name-server x.x.x.x x.x.y.y
+ntp server y.y.y.y use-vrf management"
+ntp server y.y.z.z use-vrf default"
+
+Juniper
+-------
+set system name-server x.x.x.x
+set system domain-name bogus.com
+set system ntp server y.y.y.y
+
+
+Your playbook should be idempotent for all the devices. 
+
+Additionally, you should use the ios_config, eos_config, nxos_config, and junos_config 
+modules to accomplish this task.
+
