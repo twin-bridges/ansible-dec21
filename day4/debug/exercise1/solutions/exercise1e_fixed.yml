@@ -1,0 +1,14 @@
+---
+
+- name: Exercise1e - here there be errors (fixed).
+  hosts: juniper
+  gather_facts: False
+
+  tasks:
+    - name: Executing command
+      junipernetworks.junos.junos_command:
+        commands: show interfaces terse
+      register: output
+
+    - ansible.builtin.debug:
+        msg: "{{ output }}"

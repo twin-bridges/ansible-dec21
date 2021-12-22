@@ -1,0 +1,26 @@
+
+Exercise1 contains a set of playbooks (exercise1a.yml through exercise7g.yml).
+
+Each of these playbooks will fail (i.e. not execute properly). 
+
+You should "git clone" or "git rebase" this repository to your lab environment 
+(or otherwise copy the six playbooks; you will also need to copy any of the TextFSM 
+templates located in that exercise6 directory).
+
+Your job for each of these playbooks is to find and correct the error in each playbook.
+
+In general, the playbook should only contain one error. Note, the error may or 
+may not result in an actual Ansible execution failure (i.e. ansible-playbook detecting 
+the task as failed and stopping execution). Or worded differently, a couple of 
+the playbooks execute successfully from an Ansible perspective, but do not do what 
+they are supposed to do.
+
+You should try to fix each one of these playbooks on your own.
+
+For reference, there is also a solutions directory where I have created a "fixed" 
+version of each playbook. You can do a diff between the failing and fixed playbook 
+to see the exact issue (but once again try to solve them yourself).
+
+# How to diff exercise1a
+$ diff exercise1a.yml solutions/exercise1a_fixed.yml 
+

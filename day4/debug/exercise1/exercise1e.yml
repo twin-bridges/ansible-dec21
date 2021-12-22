@@ -1,0 +1,14 @@
+---
+
+- name: Exercise1e - here there be errors.
+  hosts: juniper
+  gather_facts: False
+
+  tasks:
+    - name: Executing command
+      cisco.nxos.nxos_command:
+        commands: show interfaces terse
+      register: output
+
+    - ansible.builtin.debug:
+        msg: "{{ output }}"
