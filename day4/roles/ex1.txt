@@ -1,0 +1,13 @@
+
+Create an Ansible role that configures NTP on the IOS, IOS-XE, Arista, and NX-OS 
+devices. 
+
+The Ansible role should use "ios_config", "eos_config", and "nxos_config" to accomplish this. 
+
+In each case, an external Jinja2 template should be used (in other words, the 
+"src" argument to ios_config/eos_config/nxos_config should be used). 
+
+All of the configuration tasks for this role should be located in "tasks/main.yml". 
+
+All of the variables and Jinja2 templates should be included in the role.
+
