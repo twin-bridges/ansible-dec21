@@ -1,3 +1,4 @@
+
 Using a single Jina2 template and an Ansible Playbook generate a configuration 
 matching the following for each of the four Arista switches:
 

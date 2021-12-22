@@ -1,16 +1,28 @@
 interface GigabitEthernet1
- switchport mode access
- switchport access vlan 20
+ switchport access vlan 10
+ spanning-tree portfast
 !
 interface GigabitEthernet2
- switchport mode access
- switchport access vlan 30
+ switchport access vlan 10
+ spanning-tree portfast
 !
 interface GigabitEthernet3
- switchport mode access
- switchport access vlan 40
+ switchport access vlan 10
+ spanning-tree portfast
 !
 interface GigabitEthernet4
- switchport mode access
- switchport access vlan 50
+ switchport access vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet5
+ switchport access vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet6
+ switchport access vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet7
+ switchport access vlan 10
+ spanning-tree portfast
 !

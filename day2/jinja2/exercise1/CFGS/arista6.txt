@@ -17,8 +17,7 @@ clock timezone America/Los_Angeles
 vlan 2-7
 !
 interface Ethernet1
-   spanning-tree portfast
-   spanning-tree cost 1
+   switchport access vlan 1
 !
 interface Ethernet2
    switchport access vlan 2

@@ -7,4 +7,3 @@
       cisco.ios.ios_facts:
       register: cisco_facts
 
-
