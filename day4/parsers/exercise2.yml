@@ -1,0 +1,20 @@
+- name: Exercise2
+  hosts: arista
+  gather_facts: True
+  vars:
+    platform: "arista_eos"
+    command: "show vlan"
+
+  tasks:
+    - name: Executing show command
+      arista.eos.eos_command:
+        commands: "{{ command }}"
+      register: output
+
+    - name: Use TextFSM to convert to structured data
+      ansible.builtin.set_fact:
+        output_parsed: "{{ output.stdout[0] | ntc_parse(command, platform) }}"
+
+    - name: Print out structured data
+      ansible.builtin.debug:
+        var: output_parsed

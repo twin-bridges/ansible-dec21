@@ -1,0 +1,15 @@
+
+Create a playbook that connects to the four Arista devices and that retrieves 
+"show vlan" using the eos_command module.
+
+Further parse this "show vlan" output using TextFSM and the "ntc_parse" filter.
+
+Display your returned data structure to standard output.
+
+Note, ntc_parse requires two arguments:
+
+    ntc_parse(command, platform)
+
+Where command is: "show vlan"
+And platform is: "arista_eos"
+
