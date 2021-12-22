@@ -1,0 +1,13 @@
+
+1a. Using genie and the "clay584.genie" collection execute "show interface" on the 
+two NX-OS switches. Use the "parse_genie" filter to convert this output to 
+structured data.
+
+Print the returned data structure to standard out using "debug" and verify that 
+this data structure is in fact structured data (instead of a string).
+
+
+1b. Repeat the same pattern as exercise1a except this time execute 
+"show version". 
+
+From this output extract the software version and print it to the screen.

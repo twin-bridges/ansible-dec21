@@ -1,0 +1,25 @@
+---
+- name: Exercise 1b
+  hosts: nxos
+  gather_facts: false
+  vars:
+    command: show version
+
+  tasks:
+    - name: Executing command
+      cisco.nxos.nxos_command:
+        commands: "{{ command }}"
+      register: output
+
+    - name: Use Genie to convert to structured data
+      ansible.builtin.set_fact:
+        output_struct: "{{ output.stdout[0] | clay584.genie.parse_genie(command=command, os=ansible_network_os) }}"
+
+    - name: Print software version
+      ansible.builtin.debug:
+        msg: 
+          - "-------------------"
+          - "{{ inventory_hostname }}:"
+          - "{{ output_struct.platform.software.system_version }}"
+          - "-------------------"
+

@@ -1,0 +1,20 @@
+---
+- name: Exercise 1a
+  hosts: nxos
+  gather_facts: false
+  vars:
+    command: show interface
+
+  tasks:
+    - name: Executing command
+      cisco.nxos.nxos_command:
+        commands: "{{ command }}"
+      register: output
+
+    - name: Use Genie to convert to structured data
+      ansible.builtin.set_fact:
+        output_struct: "{{ output.stdout[0] | clay584.genie.parse_genie(command=command, os=ansible_network_os) }}"
+
+    - name: Display output as structured data
+      ansible.builtin.debug:
+        msg: "{{ output_struct }}"
