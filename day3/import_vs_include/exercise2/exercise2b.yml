@@ -1,0 +1,9 @@
+---
+- name: "Exercise 2b"
+  hosts: localhost
+  vars:
+    my_tasks_alt: subtask1.yml
+  tasks:
+    - name: Import and Dynamic Name (exercise2b)
+      # ansible.builtin.import_tasks: "{{ my_tasks }}"
+      ansible.builtin.import_tasks: "{{ my_tasks_alt }}"

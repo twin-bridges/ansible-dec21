@@ -1,0 +1,33 @@
+
+1a. Create a playbook that runs against localhost. In this playbook, create a task 
+that uses "include_tasks" and loads in an external sub-tasks file named 
+"subtask1.yml". 
+
+The task in the main playbook should have a loop that loops over four IP 
+addresses. The sub-tasks file should have a "debug" task that prints out the 
+IP address.
+
+
+1b. Add the name of your sub-tasks file into "host_vars/localhost.yml". Convert 
+your "include_tasks" statement in your main playbook to use the variable defined 
+in host_vars. The rest of the task and sub-task should remain the same (i.e. 
+looping over four IP addresses and printing them out).
+
+
+1c. Create a file named "subtask2.yml" that has three "debug" tasks. These debug 
+tasks should each print out slightly different messages. Additionally, these 
+three sub-tasks should each have their own "tag" associated with them. 
+
+Create a new main playbook that uses "include_tasks" to execute the tasks in 
+"subtask2.yml". 
+
+No loop is necessary in this exercise. 
+
+What happens if you execute your playbook and pass in one of the "tags" defined 
+in "subtask2.yml". Does the sub-task actually execute? Why not? At this point, 
+it is assumed that the main playbook has no tags defined in it.
+
+While still using "include_tasks", how could you correct the main playbook such 
+that the proper sub-task would execute if you use the sub-tasks corresponding 
+"tag"? 
+
