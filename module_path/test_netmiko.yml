@@ -1,0 +1,12 @@
+---
+- name: Netmiko module
+  hosts: cisco
+  gather_facts: False
+  tasks:
+    - name: Netmiko testing
+      netmiko_send_command:
+        host: "{{ ansible_host }}"
+        device_type: cisco_ios
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+        command: show ip int brief
