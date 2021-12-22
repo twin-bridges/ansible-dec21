@@ -1,9 +1,7 @@
 ---
 - name: hostvars example
   hosts: arista8
-  gather_facts: False
+  gather_facts: True
   tasks:
     - ansible.builtin.debug:
-        var: hostvars
-        # var: groups
-        # var: inventory_hostname
+        msg: "{{ hostvars }}"

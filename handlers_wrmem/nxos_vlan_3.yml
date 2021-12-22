@@ -1,6 +1,7 @@
 ---
 - name: NXOS Example
   hosts: nxos
+  gather_facts: False
   tasks:
     - name: Configure NEXUS VLANs
       cisco.nxos.nxos_vlan:

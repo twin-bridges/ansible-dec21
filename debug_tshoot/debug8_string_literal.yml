@@ -1,6 +1,6 @@
 ---
 
-- name: Bad escaping
+- name: Using a string literal and not variable
   hosts: nxos1
   gather_facts: False
 
