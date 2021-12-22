@@ -1,0 +1,23 @@
+
+4. Construct a playbook that executes against the Arista, Cisco IOS/IOS-XE, 
+and Cisco NX-OS lab devices. 
+
+The playbook should consist of a single Ansible play.
+
+The tasks for each platform should configure the global parameters (DNS servers, 
+NTP servers, and domain-name). The actual configuration tasks for each platform 
+should be imported/included from an external task file per platform.
+
+You should make a distinction between Cisco IOS and IOS-XE since there are slight 
+syntactical differences for their DNS configurations. 
+
+Your top level playbook should also have tags corresponding to "ios", "ios-xe", 
+"eos", and "nxos" such that you could execute your playbook with that tag and 
+only configure that platform.
+
+Make sure your playbook works properly with no tags (i.e. all of the platforms 
+are configured).
+
+Make sure your playbook works properly using tags (i.e. only that platform is 
+configured).
+
