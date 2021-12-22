@@ -1,0 +1,57 @@
+
+[Optional - requires Python] 
+
+Expand the dynamic inventory script located here:
+
+https://github.com/twin-bridges/ansible-dec21/blob/main/dynamic_inventory/dyn_inv.py
+
+Such that all the devices located in Ansible inventory (~/ansible-hosts.ini) are 
+included in the dynamic inventory script. 
+
+You should just hard code the device definitions inside the script such that they 
+get outputted properly as JSON (i.e. hard-code them in the script using Python 
+data structures).
+
+Ensure your script works properly when executed as follows:
+
+$ ./your_inv_script.py --list
+
+
+And:
+
+$ ./your_inv_script.py --host nxos1
+
+Where "nxos1" is some host in inventory.
+
+In a real dynamic inventory scenario, you would be pulling the device and group 
+information from external systems via APIs; converting to the proper data 
+structure(s), and then outputting these data structures in JSON. 
+
+Consequently, in this exercise, we are only really doing the last part of this
+(the proper output in JSON format so Ansible can ingest the inventory information).
+
+When your script is done, the output of the below ansible-inventory command should
+look as follows:
+
+$ ansible-inventory --graph -i ./dyn_inv.py 
+@all:
+  |--@arista:
+  |  |--arista5
+  |  |--arista6
+  |  |--arista7
+  |  |--arista8
+  |--@cisco:
+  |  |--cisco1
+  |  |--cisco2
+  |  |--cisco5
+  |  |--cisco6
+  |--@juniper:
+  |  |--vmx1
+  |  |--vmx2
+  |--@local:
+  |  |--localhost
+  |--@nxos:
+  |  |--nxos1
+  |  |--nxos2
+  |--@ungrouped:
+
