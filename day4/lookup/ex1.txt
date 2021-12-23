@@ -1,0 +1,22 @@
+
+Create a custom Ansible inventory for the Arista devices that does NOT contain 
+either the ansible_user or the ansible_ssh_pass.
+
+Create an Ansible playbook. 
+
+In this playbook, create variables for both 'ansible_ssh_pass' and for 'ansible_user'.
+
+The 'ansible_ssh_pass' variable should be set using a "lookup" and the 
+ANSIBLE_PASSWORD environment variable (this environment variable should already 
+be set in the lab environment). 
+
+In other words, you should not hard-code the password in the playbook; instead 
+you should be reading it from the referenced environment variable.
+
+Your playbook should successfully execute the "show vlan" command on all of the 
+remote Arista devices using the eos_command module (use the "-i new_inventory_file.ini" 
+to use the new inventory file you created). 
+
+Print the returned output from "show vlan" to the screen to verify the playbook 
+executed correctly.
+
