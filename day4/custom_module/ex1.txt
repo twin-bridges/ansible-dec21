@@ -1,0 +1,44 @@
+Create an Ansible module that takes five arguments: host, device_type, username, 
+password, and config_list. Each of these arguments should be a string except for 
+config_list which is a list. The "password" argument should use "no_log=True".
+
+Using these arguments establish a Netmiko SSH connection inside the new Ansible 
+module. 
+
+Additionally, use the Netmiko send_config_set() method to send the configuration 
+commands specified in "config_list" to the remote device. The syntax for this 
+method should be similar to the following:
+
+# net_connect is the Netmiko connection object created by using ConnectHandler
+output = net_connect.send_config_set(config_list)
+
+Return the "output" from this command in the "output" field of the Ansible results. 
+Also set the "changed" flag to True (if configuration changes were made).
+
+
+Next, construct an Ansible playbook that uses this new module. 
+
+This new module should make the following two configuration changes on the 
+"cisco1" router:
+
+        config_list:
+          - logging buffered 20000
+          - no logging console
+
+Your entire task (in your playbook) should be similar to the following. Do not 
+hard-code the password in the playbook; instead use the "ansible_ssh_pass" 
+variable from inventory.
+
+    - name: Netmiko configuration changes
+      netmiko_config:
+        host: "{{ ansible_host }}"
+        device_type: cisco_ios
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+        config_list:
+          - logging buffered 20000
+          - no logging console
+
+Execute your playbook and verify that it works properly. Ensure that the 
+configuration changes were made on the remote device.
+
