@@ -1,0 +1,10 @@
+---
+- name: Vault Exercise
+  hosts: arista
+  gather_facts: False
+  tasks:
+    - ansible.builtin.debug:
+        var: ntp_server1
+
+    - ansible.builtin.debug:
+        var: domain_name

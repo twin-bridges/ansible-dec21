@@ -1,0 +1,59 @@
+
+Create a new directory for exercise1 and in this directory create the following 
+sub-directories and files:
+
+$ cat ./group_vars/arista/dns.yml
+---
+domain_name: bogus.com
+dns_server1: 8.8.8.8
+dns_server2: 8.8.4.4
+
+$ cat ./group_vars/arista/ntp.yml
+---
+ntp_server1: 130.126.24.24
+ntp_server2: 152.2.21.1
+
+Also create the following playbook:
+
+---
+- name: Exercise1
+  hosts: arista
+  gather_facts: False
+  tasks:
+    - debug:
+        var: ntp_server1
+
+    - debug:
+        var: domain_name
+
+Verify your playbook executes properly and the two specified variables from 
+group_vars are printed out to standard output.
+ 
+
+a. Using 'ansible-vault encrypt', encrypt the two YAML files in group_vars. 
+
+Verify the two files are in fact encrypted by looking at the files. Verify your 
+playbook still executes properly when using the '--ask-vault-pass' command-line 
+argument.
+
+
+b. Create a file named ".my_vault" in the same directory as your playbook. Store 
+your vault password in this file. Using this file and the "--vault-password-file .my_vault" 
+command-line argument, verify your playbook still executes properly.
+
+
+c. Use 'ansible-vault view' to view the dns.yml file. You should be able to see 
+the clear-text contents of this file.
+
+
+d. Configure the following in your ~/.ansible.cfg file:
+
+vault_password_file = /path/to/.my_vault
+
+After making this change, verify your playbook still executes properly, but without 
+you needing to specify any additional command-line arguments.
+
+
+e. Execute 'ansible-vault decrypt' to decrypt both the dns.yml and the ntp.yml 
+files. Verify these files are now both clear-text YAML files.
+ 
