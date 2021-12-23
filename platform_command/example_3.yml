@@ -6,6 +6,9 @@
   tasks:
     - name: Execute Show Command
       arista.eos.eos_command:
-        commands: show vlan
+        commands: 
+          - command: 'show ip route'
+            output: 'json'
+        # commands: show ip route | json
       register: show_vlan
 

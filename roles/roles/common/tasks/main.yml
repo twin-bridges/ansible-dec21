@@ -1,3 +1,21 @@
 ---
 - ansible.builtin.debug:
     msg: Hello world
+
+- ansible.builtin.debug:
+    msg: Hello world
+
+- ansible.builtin.debug:
+    msg: Hello world
+
+- ansible.builtin.debug:
+    msg: Hello world
+
+- ansible.builtin.debug:
+    msg: Hello world
+
+- ansible.builtin.debug:
+    msg: Hello world
+
+- ansible.builtin.include_tasks: ntp.yml
+

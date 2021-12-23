@@ -10,3 +10,4 @@
 - name: Push configuration
   cisco.ios.ios_config:
     src: vrf_lite.j2
+  tags: always
