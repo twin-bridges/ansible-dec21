@@ -1,0 +1,17 @@
+---
+- name: Exercise2
+  hosts: cisco
+  gather_facts: False
+
+  tasks:
+    - name: Executing command
+      cisco.ios.ios_command:
+        commands: show ip arp
+      register: output
+
+    - ansible.builtin.set_fact:
+        output: "{{ output.stdout[0] }}"
+
+    - ansible.builtin.debug:
+        msg: "{{ output | arp_dict }}"
+

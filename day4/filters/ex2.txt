@@ -1,0 +1,12 @@
+
+Create a filter plugin that processes the "show ip arp" output from the four 
+Cisco IOS/IOS-XE routers. The filter plugin should take the ARP output as a string 
+and return a dictionary where the key is the IP address and the value is the MAC 
+address.
+
+Construct an Ansible playbook that retrieves "show ip arp" from the four Cisco 
+IOS/IOS-XE routers. 
+
+Process this ARP output through the new filter and verify that the new dictionary 
+is properly returned for each device.
+

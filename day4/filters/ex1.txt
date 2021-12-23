@@ -1,0 +1,11 @@
+
+Create a filter plugin that processes the "show ip arp" output from the Arista 
+switches. The filter plugin should take the ARP output as a string and return the 
+list of MAC addresses that are present in the ARP output.
+
+Construct an Ansible playbook that retrieves "show ip arp" from all of the Arista 
+switches. 
+
+Process this ARP output through the new filter and verify that the list of MAC 
+addresses is being properly returned.
+
